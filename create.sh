@@ -31,7 +31,7 @@ aws ec2 modify-subnet-attribute --subnet-id $PUB2 --map-public-ip-on-launch --re
 
 echo "creating route table: "
 
-$PUBLIC_RT=$(aws ec2 create-route-table --vpc-id $VPC_ID --query 'RouteTable.RouteTableId' --output text --region $REGION)
+PUBLIC_RT=$(aws ec2 create-route-table --vpc-id $VPC_ID --query 'RouteTable.RouteTableId' --output text --region $REGION)
 
 aws ec2 create-route --route-table-id $PUBLIC_RT --destination-cidr-block 0.0.0.0/0 --gateway-id $IGW_ID --region $REGION
 
@@ -41,17 +41,10 @@ aws ec2 associate-route-table --subnet-id $PUB2 --route-table-id $PUBLIC_RT --re
 
 echo "VPC created: "
 echo "VPC: $VPC_ID"
-echo "IGW: $IGE_ID"
+echo "IGW: $IGW_ID"
 echo "Public subnet1: $PUB1"
 echo "PUblic subnet2: $PUB2"
 echo "Private subnet1: $PRI1"
 echo "Private subnet2: $PRI2"
 echo "Route table: $PUBLIC_RT"
 
-export REGION=$REGION
-export VP_ID=$VPC_ID
-export IGW_ID=$IGW_ID
-export PUB1=$PUB1
-export PUB2=$PUB2
-export PRI1=$PRI1
-export PUBLIC_RT=$PUBLIC_RT
