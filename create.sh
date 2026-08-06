@@ -48,3 +48,13 @@ echo "Private subnet1: $PRI1"
 echo "Private subnet2: $PRI2"
 echo "Route table: $PUBLIC_RT"
 
+cat > resources.sh <<EOF
+REGION="$REGION"
+VPC_ID="$VPC_ID"
+IGW_ID="$IGW_ID"
+PUB1="$PUB1"
+PUB2="$PUB2"
+PRI1="$PRI1"
+PRI2="$PRI2"
+PUBLIC_RT="$PUBLIC_RT"
+EOF
