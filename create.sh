@@ -47,3 +47,10 @@ echo "PUblic subnet2: $PUB2"
 echo "Private subnet1: $PRI1"
 echo "Private subnet2: $PRI2"
 echo "Route table: $PUBLIC_RT"
+
+export VP_ID=$VPC_ID
+export IGW_ID=$IGW_ID
+export PUB1=$PUB1
+export PUB2=$PUB2
+export PRI1=$PRI1
+export PUBLIC_RT=$PUBLIC_RT
