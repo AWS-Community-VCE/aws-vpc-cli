@@ -26,8 +26,8 @@ echo "creating private subnets: "
 PRI1=$(aws ec2 create-subnet --vpc-id $VPC_ID --cidr-block 10.0.11.0/24 --availability-zone us-east-1a --query 'Subnet.SubnetId' --output text --region $REGION)
 PRI2=$(aws ec2 create-subnet --vpc-id $VPC_ID --cidr-block 10.0.12.0/24 --availability-zone us-east-1a --query 'Subnet.SubnetId' --output text --region $REGION)
 
-aws ec2 modify-subnet-attribute --subnet-id $PUB1 --map-customer-owned-ip-on-launch --region $REGION
-aws ec2 modify-subnet-attribute --subnet-id $PUB2 --map-customer-owned-ip-on-launch --region $REGION
+aws ec2 modify-subnet-attribute --subnet-id $PUB1 --map-public-ip-on-launch --region $REGION
+aws ec2 modify-subnet-attribute --subnet-id $PUB2 --map-public-ip-on-launch --region $REGION
 
 echo "creating route table: "
 
